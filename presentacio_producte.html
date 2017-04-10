@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Gèneres </title>
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+    <script type="text/javascript" src="js/llistat_llibres.js"></script>
+
+</head>
+
+<body onload="ordenar_ventes_asc()">
+
+
+
+    <!-- capçalera esquerra pàgina -->
+    <div id="leftHead">
+        <span id="logo"> <a href="index.html"><img src="img/logo.png" alt="logo"  height="75" width="400"></a> </span>
+    </div>
+
+
+    <!-- capçalera dreta pàgina -->
+    <div id="rightHead">
+        <a href="carrito.html"> <img src="img/carret.png" alt="logo" height="40" width="40" hspace="20"> </a>
+        <form name="login">
+            Usuari:
+            <input type="text" name="usuari" size="10"> Clau:
+            <input type="password" name="contrasenya" size="10">
+            <button type="button" onclick="loginUser()">Entrar</button>
+            <p><a href="registration.html">Registrar-se</a> <a href=""> Recordar contrasenya</a></p>
+        </form>
+    </div>
+
+
+    <!-- barra horitzontal menú -->
+
+
+
+    <!-- INICI CONTINGUT -->
+    <div id="content_ord">
+        <!-- pàgina stock llibres per ordenar-->
+
+
+        <head>
+
+
+
+        </head>
+
+
+
+
+        <header>
+
+            <!-- Botons d'ordenació -->
+
+            <h1>Gèneres</h1>
+        </header>
+
+
+        <!-- CONTINGUT DINÀMIC -->
+
+        <div class="fons_cataleg" id="romanticos">
+            <div>
+                <a href="romantic.html"> <img src="img/romantic.jpg" width="100%"></a>
+            </div>
+            <div>
+                <a href="policiac.html"> <img src="img/policiac.jpg" width="100%"></a>
+
+            </div>
+            <div>
+                <a href="ciencia_ficcio.html"> <img src="img/ciencia_ficcio.jpg" width="100%"></a>
+
+            </div>
+            <div>
+                <a href="aventures.html"> <img src="img/aventures.jpg" width="100%"></a>
+
+
+            </div>
+            <div>
+
+
+
+            </div>
+
+        </div>
+
+        <!-- Script d'ordenació més arrays llibres -->
+
+    </div>
+
+
+
+
+
+    <!-- FINAL CONTINGUT -->
+
+
+    <!-- Peu de la pàgina -->
+    <div id="footer">
+        <!-- botons xarxes socials -->
+        <div id="follow">
+            <a target="_blank" href=https://www.twitter.com> <img src="img/twitter.png" alt="twitter" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.facebook.com> <img src="img/facebook.png" alt="facebook" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.linkedin.com> <img src="img/linkedin.png" alt="linkedin" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.instagram.com> <img src="img/instagram.png" alt="instagram" height="30" width="30" vspace="5"> </a>
+        </div>
+
+        <div id="pagaments">
+            <img src="img/pagaments.png" alt="pagaments" height="30" width="210" vspace="5">
+        </div>
+
+    </div>
+
+
+
+
+</html>

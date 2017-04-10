@@ -1,0 +1,251 @@
+@charset "utf-8";
+/* CSS Pràctica Programació Web */
+
+body {
+    margin: 0;
+    font: 12px Arial;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+#leftHead {
+    float: left;
+    width: 50%;
+    /*height: 150px;*/
+}
+
+#rightHead {
+    float: right;
+    width: 50%;
+    /*height: 150px;*/
+    
+    text-align: right;
+}
+
+#rightHead img {
+    float: right;
+    padding-top: 60px;
+}
+
+#rightHead form {
+    float: right;
+    padding-top: 60px;
+    color: rgb(93, 18, 25);
+}
+
+#rightHead form a,
+a:visited {
+    padding-left: 70px;
+    color: rgb(93, 18, 25);
+}
+
+#logo {
+    padding: 20px 0px 20px 50px;
+    float: left;
+}
+
+#menu {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    background-color: rgb(93, 18, 25);
+}
+
+#menu li {
+    display: inline;
+}
+
+#menu a {
+    font: 18px Arial;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 30px 10px 30px;
+}
+
+#content {
+    font: 14px Arial;
+    text-align: justify;
+    padding: 40px 60px 40px 60px;
+    float: left;
+}
+
+#content_ord {
+    font: 14px Arial;
+    text-align: justify;
+    padding: 10px 60px 40px 0px;
+    float: left;
+    width: 100%;
+}
+
+#content form {
+    margin-left: 500px;
+}
+
+#footer {
+    float: left;
+    width: 100%;
+    background-color: rgb(93, 18, 25);
+    color: white;
+    font: 14px Arial;
+}
+
+#follow {
+    float: right;
+    margin-right: 30px;
+}
+
+#pagaments {
+    margin-left: 30px;
+}
+
+header,
+footer {
+    padding: 1em;
+    color: white;
+    background-color: rgb(93, 18, 25);
+    clear: left;
+    text-align: center;
+    overflow: hidden;
+}
+
+div.container {
+    width: 100%;
+    border: 0px solid gray;
+    float: right;
+}
+
+div.container2 {
+    width: 100%;
+    height: 50%;
+    border: 0px solid gray;
+    background-color: rgb(93, 18, 25);
+}
+
+h3 {
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+h4 {
+    padding-right: 10px;
+}
+
+p {
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+div.container3 {
+    width: 100%;
+    height: 70px;
+    border: 0px solid gray;
+    float: right;
+    display: block;
+}
+
+.boton {
+    background-color: rgb(93, 18, 25);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    width: 185px;
+    cursor: pointer;
+}
+
+.links {
+    width: 185px;
+    display: none;
+}
+
+.links button {
+    background-color: rgb(93, 18, 25);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    display: block;
+    width: 185px;
+}
+
+.links button:hover {
+    background-color: rgb(93, 18, 25);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 13px;
+    display: block;
+}
+
+.desplegable:hover .links {
+    display: block;
+}
+
+.desplegable {
+    position: absolute;
+    left: 84.5%;
+    margin-top: 47px;
+    margin-right: 100px;
+}
+
+.caixa_llibres {
+    border-bottom: 1px solid #c2c0c0;
+    border-top: 0px solid red;
+    float: left;
+    position: relative;
+    padding-top: 15px;
+    cursor: pointer;
+    clear: both;
+}
+
+.caixa_portada {
+    width: 106px;
+    float: left;
+    padding-right: 20px;
+    padding: 20px;
+}
+
+.caixa_info {
+    float: left;
+    width: 440px;
+}
+
+.preu_article {
+    float: right;
+    width: 105px;
+    margin: 11px 0 0 5px;
+    border-radius: 7px;
+    background-color: #767676;
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 4px 3px;
+    text-align: center;
+    width: 70px;
+}
+
+.fons_cataleg {
+    max-width: 670px;
+    height: auto;
+    margin: 10px;
+    border: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titol {
+    text-transform: uppercase;
+    font-size: 14px;
+    width: 322px;
+    font-weight: bold;
+    text-decoration: none;
+}

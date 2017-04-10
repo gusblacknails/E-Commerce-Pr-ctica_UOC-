@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Aventures </title>
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+    <script type="text/javascript" src="js/llistat_llibres.js"></script>
+
+</head>
+
+<body onload="ordenar_ventes_asc_ave()">
+
+
+
+    <!-- capçalera esquerra pàgina -->
+    <div id="leftHead">
+        <span id="logo"> <a href="index.html"><img src="img/logo.png" alt="logo"  height="75" width="400"></a> </span>
+    </div>
+
+
+    <!-- capçalera dreta pàgina -->
+    <div id="rightHead">
+        <a href="carrito.html"> <img src="img/carret.png" alt="logo" height="40" width="40" hspace="20"> </a>
+        <form name="login">
+            Usuari:
+            <input type="text" name="usuari" size="10"> Clau:
+            <input type="password" name="contrasenya" size="10">
+            <button type="button" onclick="loginUser()">Entrar</button>
+            <p><a href="registration.html">Registrar-se</a> <a href=""> Recordar contrasenya</a></p>
+        </form>
+    </div>
+
+
+    <!-- barra horitzontal menú -->
+    <div id="menu">
+        <ul>
+            <li><a href="romantic.html">Romàntic</a>
+            </li>
+            <li><a href="policiac.html">Policíac</a>
+            </li>
+            <li><a href="ciencia_ficcio.html">Ciència Ficció</a>
+            </li>
+            <li><a href="aventures.html">Aventures</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- INICI CONTINGUT -->
+    <div id="content_ord">
+        <!-- pàgina stock llibres per ordenar-->
+
+
+        <head>
+
+
+
+        </head>
+
+
+
+
+        <header>
+
+            <!-- Botons d'ordenació -->
+            <div class="desplegable">
+                <button class="boton">Ordenar per:</button>
+
+                <div class="links">
+
+                    <button onclick=ordenar_alf_asc_ave()>ordenar alfabet_asc</button>
+                    <button class="" onclick=ordenar_alf_desc_ave()>ordenar alfabet_desc</button>
+                    <button onclick=ordenar_preu_asc_ave()>ordenar pvp_asc</button>
+                    <button class="" onclick=ordenar_preu_desc_ave()>ordenar pvp_desc</button>
+                    <button onclick=ordenar_ventes_asc_ave()>ordenar top ventes_asc</button>
+                    <button onclick=ordenar_ventes_desc_ave()>ordenar top ventes_desc</button>
+                    <button onclick=ordenar_descompte_asc_ave()>ordenar descompte_asc</button>
+                    <button onclick=ordenar_descompte_desc_ave()>ordenar descompte_desc</button>
+
+                </div>
+            </div>
+
+            <h1>Novel·la d'Aventures</h1>
+        </header>
+
+
+        <!-- CONTINGUT DINÀMIC -->
+
+        <div class="fons_cataleg" id="romanticos">
+            <div class="caixa_llibres" id="lib1">
+                <img class="caixa_portada" src="" width="100" id="rom_1" onclick="mostra_ave_0()">
+                <div class="caixa_info" id="lib1">
+                    <h3 class="titol" id="tit_1"></h3>
+
+                    <p id="aut_1"></p>
+                    <p id="ventes_1"></p>
+                    <p id="descompte_1"></p>
+                    <p id="descrip_1"></p>
+                </div>
+                <p class="preu_article" id="pvp_1"></p>
+
+
+
+            </div>
+            <div class="caixa_llibres" id="lib2">
+                <img class="caixa_portada" src="" width="100" id="rom_2" onclick="mostra_ave_1()">
+                <div class="caixa_info" id="lib1">
+                    <h3 class="titol" id="tit_2"></h3>
+
+                    <p id="aut_2"></p>
+
+
+                    <p id="ventes_2"></p>
+                    <p id="descompte_2"></p>
+                    <p id="descrip_2"></p>
+                </div>
+                <p class="preu_article" id="pvp_2"></p>
+
+
+
+
+            </div>
+            <div class="caixa_llibres" id="lib3">
+                <img class="caixa_portada" src="" width="100" id="rom_3" onclick="mostra_ave_2()">
+
+                <div class="caixa_info" id="lib1">
+                    <h3 class="titol" id="tit_3"></h3>
+
+                    <p id="aut_3"></p>
+
+
+                    <p id="ventes_3"></p>
+                    <p id="descompte_3"></p>
+                    <p id="descrip_3"></p>
+                </div>
+                <p class="preu_article" id="pvp_3"></p>
+
+
+            </div>
+            <div class="caixa_llibres" id="lib4">
+                <img class="caixa_portada" src="" width="100" id="rom_4" onclick="mostra_ave_3()">
+
+                <div class="caixa_info" id="lib1">
+                    <h3 class="titol" id="tit_4"></h3>
+
+                    <p id="aut_4"></p>
+
+
+                    <p id="ventes_4"></p>
+                    <p id="descompte_4"></p>
+                    <p id="descrip_4"></p>
+                </div>
+                <p class="preu_article" id="pvp_4"></p>
+
+            </div>
+            <div class="caixa_llibres" id="lib5">
+                <img class="caixa_portada" src="" width="100" id="rom_5" onclick="mostra_ave_4()">
+
+                <div class="caixa_info" id="lib1">
+                    <h3 class="titol" id="tit_5"></h3>
+
+                    <p id="aut_5"></p>
+
+
+                    <p id="ventes_5"></p>
+                    <p id="descompte_5"></p>
+                    <p id="descrip_5"></p>
+
+                </div>
+                <p class="preu_article" id="pvp_5"></p>
+
+
+            </div>
+
+        </div>
+
+        <!-- Script d'ordenació més arrays llibres -->
+        <script type="text/javascript" src="js/llistat_llibres.js"></script>
+
+    </div>
+
+
+
+
+
+    <!-- FINAL CONTINGUT -->
+
+
+    <!-- Peu de la pàgina -->
+    <div id="footer">
+        <!-- botons xarxes socials -->
+        <div id="follow">
+            <a target="_blank" href=https://www.twitter.com> <img src="img/twitter.png" alt="twitter" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.facebook.com> <img src="img/facebook.png" alt="facebook" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.linkedin.com> <img src="img/linkedin.png" alt="linkedin" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.instagram.com> <img src="img/instagram.png" alt="instagram" height="30" width="30" vspace="5"> </a>
+        </div>
+
+        <div id="pagaments">
+            <img src="img/pagaments.png" alt="pagaments" height="30" width="210" vspace="5">
+        </div>
+
+    </div>
+
+
+
+
+</html>

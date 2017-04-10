@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title> Producte </title>
+
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+
+    <style>
+        div.imatges_producte {
+            width: 40%;
+            float: left;
+        }
+        
+        div.text_producte {
+            width: 45%;
+            float: left;
+        }
+        
+        div.prod_container {
+            width: 100%;
+            border: none;
+        }
+        
+        div.prod_container2 {
+            width: 100%;
+            border: none;
+            float: left;
+            background-color: #fff;
+            display: block;
+        }
+        
+        h3 {
+            text-align: center;
+            padding-right: 10px;
+            font-size: 2em;
+        }
+        
+        div.prod_titol {
+            font-size: 1.5em;
+            width: 100%;
+            border: none;
+        }
+        
+        div.prod_container3 {
+            width: 100%;
+            border: none;
+        }
+        
+        div.prod_container4 {
+            font-size: 2em;
+            margin: 50px;
+        }
+        
+        .imatge_gran {
+            width: 50%;
+            margin-left: 350px;
+            margin-top: 50px;
+        }
+        
+        #img_0 {
+            width: 30%;
+        }
+        
+        #img_1 {
+            margin: 15px 15px 0 350px;
+            width: 8%;
+        }
+        
+        #img_2 {
+            margin: 10px 15px 0 0;
+            width: 8%;
+        }
+        
+        #img_3 {
+            margin: 10px 0 0 0;
+            width: 8%;
+        }
+    </style>
+
+    <script>
+        function canvia(imatge) {
+
+            document.getElementById("img_0").src = imatge;
+
+        }
+
+        function construeix() {
+
+            document.getElementById("descompte").innerHTML = "Descompte: " + localStorage.Dscmp + " %";
+            document.getElementById("preu").innerHTML = "Preu: " + localStorage.Pvp + " €";
+            document.getElementById("cap").innerHTML = localStorage.Titol;
+            document.getElementById("descripcio").innerHTML = localStorage.Desc;
+
+            valor = localStorage.adr;
+            document.getElementById("img_0").src = valor;
+
+            imatge01 = valor.replace(/(\.[\w\d_-]+)$/i, '_A$1');
+            imatge02 = valor.replace(/(\.[\w\d_-]+)$/i, '_B$1');
+            imatge03 = valor.replace(/(\.[\w\d_-]+)$/i, '_C$1');
+
+            document.getElementById("img_1").src = imatge01;
+            document.getElementById("img_2").src = imatge02;
+            document.getElementById("img_3").src = imatge03;
+
+        }
+
+        var carrito = [];
+        var flag = 0;
+
+        function afegeix() {
+
+            var a;
+
+            if (localStorage.getItem('carrito') === null) {
+                /*    alert("no carrito"); */
+                a = [];
+            } else {
+                /*    alert("si carrito"); */
+
+                a = JSON.parse(localStorage.getItem('carrito'));
+            }
+
+            a.push(localStorage.Autor, localStorage.Titol, localStorage.Pvp, localStorage.Dscmp);
+
+            alert("Hem afegit " + localStorage.Titol + " al carret");
+
+            localStorage.setItem('carrito', JSON.stringify(a));
+
+
+        }
+    </script>
+
+</head>
+
+<body onload="construeix()">
+
+    <!-- capçalera esquerra pàgina -->
+    <div id="leftHead">
+        <span id="logo"> <a href="index.html"><img src="img/logo.png" alt="logo"  height="75" width="400"></a> </span>
+    </div>
+
+
+    <!-- capçalera dreta pàgina -->
+    <div id="rightHead">
+        <a href="carrito.html"> <img src="img/carret.png" alt="logo" height="40" width="40" hspace="20"> </a>
+        <form name="login">
+            Usuari:
+            <input type="text" name="usuari" size="10"> Clau:
+            <input type="password" name="contrasenya" size="10">
+            <button type="button" onclick="loginUser()">Entrar</button>
+            <p><a href="registration.html">Registrar-se</a> <a href=""> Recordar contrasenya</a></p>
+        </form>
+    </div>
+
+
+    <!-- barra horitzontal menú -->
+    <div id="menu">
+        <ul>
+            <li><a href="romantic.html">Romàntic</a>
+            </li>
+            <li><a href="policiac.html">Policíac</a>
+            </li>
+            <li><a href="ciencia_ficcio.html">Ciència Ficció</a>
+            </li>
+            <li><a href="aventures.html">Aventures</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- INICI CONTINGUT -->
+    <header>
+
+        <h1>Novela Romántica</h1>
+
+    </header>
+
+    <div class="prod_container">
+
+        <div class="prod_titol">
+
+            <h3 id="cap"></h3>
+
+        </div>
+
+        <div class="imatges_producte">
+
+            <div class="prod_container2">
+
+                <img class="imatge_gran" src="" id="img_0">
+
+            </div>
+
+            <div class="prod_container3">
+
+                <img src="" width="25%" id="img_1" onclick='canvia(imatge01);'>
+                <img src="" width="25%" id="img_2" onclick='canvia(imatge02);'>
+                <img src="" width="25%" id="img_3" onclick='canvia(imatge03);'>
+
+            </div>
+        </div>
+        <div class="text_producte">
+
+            <div class="prod_container4">
+
+                <p style="font-size:1.3em" id="preu"></p>
+                <p style="font-style: italic" id="descripcio"></p>
+                <p style="font-size:0.8em" id="descompte"></p>
+                <img style="margin-top: 75px" onclick="afegeix()" src="img/carret.png">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Script d'ordenació més arrays llibres -->
+    <script type="text/javascript" src="js/llistat_llibres.js"></script>
+
+</body>
+
+</html>

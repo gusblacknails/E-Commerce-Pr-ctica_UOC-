@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Carret de la compra </title>
+
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+
+    <style>
+        div.container {
+            width: 100%;
+            border: none;
+        }
+        
+        div.container2 {
+            width: 49%;
+            border: none;
+            float: left;
+        }
+        
+        h3 {
+            text-align: center;
+            padding-right: 10px;
+            font-size: 2em;
+        }
+        
+        div.titol {
+            width: 100%;
+            border: none;
+        }
+        
+        div.container3 {
+            width: 49%;
+            border: none;
+            float: right;
+        }
+        
+        header,
+        footer {
+            padding: 1em;
+            color: white;
+            background-color: black;
+            clear: left;
+            text-align: center;
+        }
+        
+        td {
+            text-align: center;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        table {
+            width: 50%;
+            margin: 25px 0 0 0;
+        }
+    </style>
+
+    <script>
+        /*  Careguem el carret de la compra i en fem una array */
+        var retrievedData = localStorage.getItem("carrito");
+        var carrito = JSON.parse(retrievedData);
+
+
+        /* Amb aquesta funció buidem el carret de la compra i aprofitem per tornar a la pagina principal  */
+        function buidar() {
+
+            reset();
+            location.href = "index.html";
+
+        }
+
+        /* Anirem a generar la factura  */
+        function facturar() {
+
+            location.href = "factura.html";
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+
+    <!-- capçalera esquerra pàgina -->
+    <div id="leftHead">
+        <span id="logo"> <a href="index.html"><img src="img/logo.png" alt="logo"  height="75" width="400"></a> </span>
+    </div>
+
+
+    <!-- capçalera dreta pàgina -->
+    <div id="rightHead">
+        <a href="carrito.html"> <img src="img/carret.png" alt="logo" height="40" width="40" hspace="20"> </a>
+        <form name="login">
+            Usuari:
+            <input type="text" name="usuari" size="10"> Clau:
+            <input type="password" name="contrasenya" size="10">
+            <button type="button" onclick="loginUser()">Entrar</button>
+            <p><a href="registration.html">Registrar-se</a> <a href=""> Recordar contrasenya</a></p>
+        </form>
+    </div>
+
+
+    <!-- barra horitzontal menú -->
+    <div id="menu">
+        <ul>
+            <li><a href="romantic.html">Romàntic</a>
+            </li>
+            <li><a href="policiac.html">Policíac</a>
+            </li>
+            <li><a href="ciencia_ficcio.html">Ciència Ficció</a>
+            </li>
+            <li><a href="aventures.html">Aventures</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- INICI CONTINGUT -->
+
+    <div class="container">
+
+        <header>
+            <h1>La teva selecció de llibres</h1>
+        </header>
+
+        <div style="margin: 25px 0 0 0;" class="container">
+            <center>
+                <table border="1">
+
+                    <script language="javascript" type="text/javascript">
+                        /* Calculem quants elements tenim al nostre carret de la compra. Com que sabem que passem 4 variables per llibre, dividim per 4 per saber quants llibres tenim  */
+
+                        long = carrito.length;
+                        long = long / 4;
+
+                        /* inicialitzem variables de calcul d'imports  */
+                        var suma = 0;
+                        var suma_desc = 0;
+
+                        /* Creem la primera linia de la taula amb els titols  */
+                        document.write("<tr><th>Article</th><th>Autor</th><th>Descompte</th><th>Preu</th><th>Preu amb descompte</th></tr>");
+
+                        /*  donem un index a cada element. Sabem la posició en la que l'hem introduit i per tant és senzill saber-ne l'ordre exacte. */
+                        var autor = 0;
+                        var nom = 1;
+                        var preu = 2;
+                        var descompte = 3;
+                        var preudescompte = 0;
+
+                        /* Creem una linia de la taula per cada element guardat a l'array carrito. Aprofitem per anar sumant elements i calculant descomptes.  */
+                        for (var i = 0; i < long; i++) {
+
+                            preudescompte = carrito[preu] * (carrito[descompte] / 100);
+
+                            preudescompte = carrito[preu] - preudescompte;
+
+                            document.write("<tr><td>" + carrito[nom] + "</td><td>" + carrito[autor] + "</td><td>" + carrito[descompte] + " %" + "</td><td>" + carrito[preu] + " €" + "</td><td>" + preudescompte.toFixed(2) + " €" + "</td></tr>");
+
+                            /* calculem els imports totals amb i sense descompte.  */
+                            suma = suma + Number(carrito[preu]);
+                            suma_desc = suma_desc + preudescompte;
+
+                            /* Saltem 4 posisicions tots els index doncs la informació de cada llibre va en blocs de 4 */
+                            nom = nom + 4;
+                            preu = preu + 4;
+                            descompte = descompte + 4;
+                            autor = autor + 4;
+                        }
+
+                        /* la última linia de la taula ens escriu la suma total i ens ho mostra amb dos decimals.  */
+                        document.write("<tr><th></th><th></th><th>Total:</th><th>" + suma.toFixed(2) + " €</th><th>" + suma_desc.toFixed(2) + " €</th></tr>");
+                    </script>
+
+                </table>
+
+                <button style="margin-top:20px" onclick="buidar()">Buida el carret i torna a l'inici</button>
+                <button style="margin-top:20px; margin-left:20px" onclick="facturar()">Veure factura</button>
+
+            </center>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

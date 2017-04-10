@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Factura </title>
+
+
+
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+
+    <style>
+        td {
+            text-align: center;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        table {
+            width: 50%;
+            margin: 25px 0 0 0;
+        }
+    </style>
+
+
+    <script>
+        /* carreguem la informació del carretó i la convertim en una array */
+        var retrievedData = localStorage.getItem("carrito");
+        var carrito = JSON.parse(retrievedData);
+
+        /* recuperem el localStorage i ho convertim a objecte */
+        ls = JSON.parse(localStorage.getItem("userStorage"));
+
+        /* fem una cerca pels usuaris fins trobar el que esta logueixat en aquest moment. És el que te el valor loginFlag = 1 */
+        for (i = 0; i < ls.users.length; i++) {
+
+            if (ls.users[i].loginFlag == 1) {
+                /* alert("L'usuari " + ls.users[i].usuari + " està actiu");*/
+                /* guardem el valor de l'index quan torbem un usuari logueixat. */
+                actiu = i;
+            }
+
+        }
+
+        /* carreguem en variables totes les dades del usuari que esta actualment logueixat a la pagina */
+        var nom = ls.users[actiu].nom;
+        var cognom1 = ls.users[actiu].cognom1;
+        var cognom2 = ls.users[actiu].cognom2;
+        var adreca = ls.users[actiu].adreca;
+        var poblacio = ls.users[actiu].poblacio;
+        var codiPostal = ls.users[actiu].codiPostal;
+        var pais = ls.users[actiu].pais;
+        var telefon = ls.users[actiu].telefon;
+        var dni = ls.users[actiu].dni;
+        var email = ls.users[actiu].email;
+        var loginFlag = ls.users[actiu].loginFlag;
+
+        /*
+        document.getElementById("nom").innerHTML = user;
+        document.getElementById("preu").innerHTML = "Preu: " + localStorage.Pvp + " €";
+        document.getElementById("cap").innerHTML = localStorage.Titol;
+        document.getElementById("descripcio").innerHTML = localStorage.Desc;
+        */
+
+        /* tornem al carreto */
+        function tornar() {
+            location.href = "carrito.html";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- INICI CONTINGUT -->
+
+    <div class="container">
+
+        <header>
+            <h1>Factura</h1>
+        </header>
+
+        <center>
+            <div class="factura">
+
+                <p>La petita llibreria
+                    <br/>C/ Els Picarols, 21 - 08808 Barcelona
+                    <br/>B12345678</p>
+
+                <div class="dades">
+                    <script>
+                        /* escribi la informació de l'usuari per fer-ne la factura */
+                        document.write("<br/><br/>");
+                        document.write("Client: " + nom + " " + cognom1 + " " + cognom2);
+                        document.write("<br/><br/>");
+                        document.write("DNI: " + dni);
+                        document.write("<br/><br/>");
+                        document.write("Adreça " + adreca + ", " + poblacio + " (" + codiPostal + ") - " + pais);
+                        document.write("<br/><br/>");
+                        document.write("Telèfon de contacte: " + telefon);
+                        document.write("<br/><br/>");
+                        document.write("Correu electrónic: " + email);
+                    </script>
+                </div>
+
+
+
+
+                <table border="1">
+
+                    <script language="javascript" type="text/javascript">
+                        /* Calculem quants elements tenim al nostre carret de la compra. Com que sabem que passem 4 variables per llibre, dividim per 4 per saber quants llibres tenim  */
+                        long = carrito.length;
+                        long = long / 4;
+
+                        /* inicialitzem variables de calcul d'imports  */
+                        var suma = 0;
+                        var suma_desc = 0;
+
+                        /* Creem la primera linia de la taula amb els titols  */
+                        document.write("<tr><th>Article</th><th>Autor</th><th>Descompte aplicat</th><th>Import</th></tr>");
+
+                        /*  donem un index a cada element. Sabem la posició en la que l'hem introduit i per tant és senzill saber-ne l'ordre exacte. */
+                        var autor = 0;
+                        var nom = 1;
+                        var preu = 2;
+                        var descompte = 3;
+                        var preudescompte = 0;
+                        var iva = 0;
+
+                        /* Creem una linia de la taula per cada element guardat a l'array carrito. Aprofitem per anar sumant elements i calculant descomptes.  */
+                        for (var i = 0; i < long; i++) {
+
+                            preudescompte = carrito[preu] * (carrito[descompte] / 100);
+                            preudescompte = carrito[preu] - preudescompte;
+
+                            document.write("<tr><td>" + carrito[nom] + "</td><td>" + carrito[autor] + "</td><td>" + carrito[descompte] + " %" + "</td><td>" + preudescompte.toFixed(2) + " €" + "</td></tr>");
+
+                            /* calculem els imports totals amb i sense descompte.  */
+                            suma = suma + Number(carrito[preu]);
+                            suma_desc = suma_desc + preudescompte;
+
+                            /* Saltem 4 posisicions tots els index doncs la informació de cada llibre va en blocs de 4 */
+                            nom = nom + 4;
+                            preu = preu + 4;
+                            descompte = descompte + 4;
+                            autor = autor + 4;
+                        }
+
+                        /* Calculem l'iva i el preu sense iva */
+                        iva = suma_desc / 1.21;
+                        preudescompte = suma_desc - iva;
+
+                        document.write("<tr><th></th><th></th><th>Total sense iva:</th><th>" + iva.toFixed(2) + " €</th></tr>");
+                        document.write("<tr><th></th><th></th><th>Iva:</th><th>" + preudescompte.toFixed(2) + " €</th></tr>");
+                        document.write("<tr><th></th><th></th><th>Total:</th><th>" + suma_desc.toFixed(2) + " €</th></tr>");
+                    </script>
+
+                </table>
+
+                <button style="margin-top:20px; margin-left:20px" onclick="print()">Imprimir</button>
+                <button style="margin-top:20px; margin-left:20px" onclick="tornar()">Tornar</button>
+
+            </div>
+        </center>
+    </div>
+
+</body>
+
+</html>

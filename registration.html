@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <title> registre </title>
+    <meta name="index" content="Pràctica - Programació Web" />
+    <link href="estils.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/validations.js"></script>
+    <script type="text/javascript" src="js/llistat_llibres.js"></script>
+
+</head>
+
+<body>
+
+    <!-- capçalera esquerra pàgina -->
+    <div id="leftHead">
+        <span id="logo"> <a href="index.html"><img src="img/logo.png" alt="logo"  height="75" width="400"></a> </span>
+    </div>
+
+
+    <!-- capçalera dreta pàgina -->
+    <div id="rightHead">
+        <a href="carrito.html"> <img src="img/carret.png" alt="logo" height="40" width="40" hspace="20"> </a>
+        <form name="login">
+            Usuari:
+            <input type="text" name="usuari" size="10"> Clau:
+            <input type="password" name="contrasenya" size="10">
+            <button type="button" onclick="loginUser()">Entrar</button>
+            <p><a href="registration.html">Registrar-se</a> <a href=""> Recordar contrasenya</a></p>
+        </form>
+    </div>
+
+
+    <!-- barra horitzontal menú -->
+    <div id="menu">
+        <ul>
+            <li><a href="romantic.html">Romàntic</a>
+            </li>
+            <li><a href="policiac.html">Policíac</a>
+            </li>
+            <li><a href="ciencia_ficcio.html">Ciència Ficció</a>
+            </li>
+            <li><a href="aventures.html">Aventures</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- INICI CONTINGUT -->
+    <div id="content">
+        <form name="registre" action="" onsubmit="return validateForm()" method="">
+            <p><b>Registra't i forma part de la nostra comunitat omplint el següent formulari. </b></p>
+            <br>
+            <p><b> Dades del compte: </b></p>
+            Usuari:
+            <br>
+            <input type="text" name="usuari">
+            <br> Contrasenya:
+            <br>
+            <input type="password" name="contrasenya">
+            <br> Confirma contrasenya:
+            <br>
+            <input type="password" name="contrasenya2">
+            <br>
+            <br>
+            <br>
+            <p><b> Dades personals: </b></p>
+            Nom:
+            <br>
+            <input type="text" name="nom">
+            <br> Primer Cognom:
+            <br>
+            <input type="text" name="cognom1">
+            <br> Segon Cognom:
+            <br>
+            <input type="text" name="cognom2">
+            <br> Adreça:
+            <br>
+            <input type="text" name="adreca">
+            <br> Població:
+            <br>
+            <input type="text" name="poblacio">
+            <br> Codi Postal:
+            <br>
+            <input type="text" name="codiPostal">
+            <br> Pais:
+            <br>
+            <input type="text" name="pais">
+            <br> Telèfon:
+            <br>
+            <input type="tel" name="telefon">
+            <br> E-Mail:
+            <br>
+            <input type="email" name="email">
+            <br> DNI:
+            <br>
+            <input type="text" name="dni">
+            <br> Data Naixement:
+            <br>
+            <input type="date" name="naixement">
+            <br>
+            <br>
+            <input type="checkbox" name="condicions"> Accepto la política de protecció de dades i les condicions d'ús.
+            <br>
+            <br>
+            <button type="button" onclick="insertUser()">Enviar</button>
+        </form>
+    </div>
+
+    <!-- FINAL CONTINGUT -->
+
+
+    <!-- Peu de la pàgina -->
+    <div id="footer">
+        <!-- botons xarxes socials -->
+        <div id="follow">
+            <a target="_blank" href=https://www.twitter.com> <img src="img/twitter.png" alt="twitter" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.facebook.com> <img src="img/facebook.png" alt="facebook" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.linkedin.com> <img src="img/linkedin.png" alt="linkedin" height="30" width="30" vspace="5"> </a>
+            <a target="_blank" href=https://www.instagram.com> <img src="img/instagram.png" alt="instagram" height="30" width="30" vspace="5"> </a>
+        </div>
+
+        <div id="pagaments">
+            <img src="img/pagaments.png" alt="pagaments" height="30" width="210" vspace="5">
+        </div>
+
+    </div>
+
+
+</body>
+
+
+</html>
